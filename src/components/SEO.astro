@@ -1,0 +1,11 @@
+---
+import type {ISEOProps} from "../types/type"
+const {title, description, image, type} = Astro.props as ISEOProps;
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta name="twitter:card" content="summary_large_image" />

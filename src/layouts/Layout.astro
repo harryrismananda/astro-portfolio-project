@@ -1,0 +1,31 @@
+---
+import { Navbar } from "../components/Navbar";
+import SEO from "../components/SEO.astro";
+import "../styles/global.css";
+import type { ILayoutSEO } from "../types/type";
+
+const defaultSEO = {
+  title: "Harry Rismananda | Full Stack Web Developer",
+  description:
+    "Full Stack Web Developer specializing in React, Node.js, and modern web technologies. Building scalable applications from concept to deployment.",
+  image: "/profile-picture.jpg",
+  type: "website",
+};
+
+const { seo = defaultSEO } = Astro.props as { seo?: typeof defaultSEO };
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO {...seo} />
+  </head>
+  <body>
+    <Navbar client:load />
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,624 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+  MapPin,
+  Mail,
+  Linkedin,
+  Download,
+  Calendar,
+  Users,
+  Award,
+  Globe,
+} from "lucide-react";
+
+const experiences = [
+  {
+    title: "Full Stack Web Developer (Freelance)",
+    company: "Independent Projects",
+    location: "Remote, Indonesia",
+    period: "July 2025 – Present",
+    responsibilities: [
+      "Developed and deployed 2 full-stack web applications using React, JavaScript, Node.js, and PostgreSQL.",
+      "Built Solo Traveler App - a real-time chat platform for solo travelers with Socket.io integration, completed in 1 week with a team of 4 developers.",
+      "Created BiblioLex - an AI-powered language learning platform with subscription model and payment integration, completed as a solo developer in 1 week.",
+      "Implemented responsive designs with Tailwind CSS and modern UI/UX principles.",
+      "Integrated third-party services including Firebase, Supabase, AWS, and GCP for scalable solutions.",
+      "Managed end-to-end project lifecycle from concept to deployment with focus on user experience.",
+    ],
+  },
+  {
+    title: "Project Management Specialist",
+    company: "PT. Sehat Dengan Olahraga",
+    location: "Remote, Indonesia",
+    period: "August 2022 – November 2024",
+    responsibilities: [
+      "Led virtual teams of 10 - 15 members across Indonesia while transitioning to web development.",
+      "Managed 20+ virtual run & ride projects, each involving 500 – 12000+ participants.",
+      "Utilized ClickUp and Google Suite to improve team productivity by 20% through streamlined task management.",
+      "Led platform development projects including new feature development and UI changes.",
+      "Applied project management skills to coordinate development teams and technical implementations.",
+      "Maintained detailed tracking of project KPIs, key milestones and risk assessments for all ongoing initiatives.",
+    ],
+  },
+  {
+    title: "Product Specialist",
+    company: "PT. Kawan Lama Sejahtera",
+    location: "Jakarta, Indonesia",
+    period: "July 2019 – July 2021",
+    responsibilities: [
+      "Supported B2B technical solutions for 50+ industrial clients across Indonesia, developing strong problem-solving skills.",
+      "Coordinated with overseas suppliers to troubleshoot technical issues, building foundation for debugging and system integration.",
+      "Designed and implemented targeted solutions that contributed to 12% reduction in operational inefficiencies.",
+      "Developed analytical thinking and attention to detail skills essential for software development.",
+    ],
+  },
+  {
+    title: "Laboratory Assistant & Technical Lead",
+    company: "Metallurgical Laboratory FT UNTIRTA",
+    location: "Cilegon, Indonesia",
+    period: "Sept. 2017 – Nov. 2018",
+    responsibilities: [
+      "Created automated scheduling systems and standard operational procedures, introducing early programming concepts.",
+      "Guided and supervised technical processes, developing leadership and documentation skills.",
+      "Built systematic approaches to problem-solving that later translated to software development methodologies.",
+    ],
+  },
+];
+
+const technicalProjects = [
+  {
+    name: "BiblioLex - AI-powered Language Learning Platform",
+    type: "Full Stack Web Application",
+    details: "React, JavaScript, Sequelize, PostgreSQL, Tailwind CSS, AWS",
+  },
+  {
+    name: "Solo Traveler App",
+    type: "Real-time Chat Application",
+    details: "React, JavaScript, Socket.io, PostgreSQL, Firebase, GCP",
+  },
+];
+
+const managementProjects = [
+  {
+    name: "Astra on the Go 2024",
+    type: "Corporate Wellness Program",
+    participants: "12000+",
+    period: "June – Sept 2024",
+    details: "Project Management & Technical Coordination",
+  },
+  {
+    name: "Livin'poin Virtual Run Road To Mandiri Jogja Marathon 2024",
+    type: "Virtual Run Platform",
+    participants: "5700",
+    period: "Apr – May 2024",
+    details: "Technical Implementation & Management",
+  },
+  {
+    name: "KeBIKEan LebaRUN 1445H",
+    type: "Virtual Run & Ride Platform",
+    participants: "3550",
+    period: "Mar – May 2024",
+    details: "Full Stack Development & Management",
+  },
+  {
+    name: "BAF Lions Run 2024",
+    type: "Virtual Run Platform",
+    participants: "1800",
+    period: "Apr – Oct 2024",
+    details: "Platform Development & Integration",
+  },
+  {
+    name: "Golden Friendship Walk & Run 2023",
+    type: "Virtual Walk & Run Platform",
+    participants: "4300",
+    period: "Oct – Dec 2023",
+    details: "Project Management & Technical Support",
+  },
+  {
+    name: "Bluebird Run & Ride 2023",
+    type: "Virtual Run & Ride Platform",
+    participants: "5600",
+    period: "June – Aug 2023",
+    details: "Platform Management & Development Support",
+  },
+];
+
+const coreCompetencies = [
+  "Full Stack Web Development",
+  "React & JavaScript",
+  "Node.js & Express",
+  "Database Design (PostgreSQL, MongoDB)",
+  "RESTful API Development",
+  "Real-time Applications (Socket.io)",
+  "Cloud Services (AWS, GCP, Firebase)",
+  "UI/UX Design (Tailwind CSS)",
+  "Project Management",
+  "Git & Version Control",
+  "Responsive Web Design",
+  "Third-party API Integration",
+];
+
+const organizations = [
+  {
+    title: "General Secretary",
+    organization: "BEM FT UNTIRTA",
+    period: "June 2017 – July 2018",
+    description:
+      "BEM FT UNTIRTA is a student board organization that functions as an institution that accommodates all student interest in the engineering faculty and as a liaison between student and campus institutions.",
+    responsibilities: [
+      "Oversaw all the organization administrative works such as monthly report, mail, proposal, time-schedule.",
+      "Created Gantt Chart for organizational programs and projects.",
+      "Organized every document and inventories related to the organization.",
+      "Acted as an advisor to the organization chief regarding strategic policy.",
+    ],
+  },
+  {
+    title: "Head of Secretarial Department",
+    organization: "HIMAMET FT UNTIRTA",
+    period: "Jan 2016 – July 2017",
+    description:
+      "HIMAMET FT UNTIRTA is a student organization in charge of student in metallurgy engineering major.",
+    responsibilities: [
+      "Oversaw organization's administrative works while leading 2 sub-division which is inventory and administration division.",
+      "Managed quarterly and yearly meetings, including scheduling, coordinating and communication.",
+      "Responsible for archiving past and present documents.",
+      "Acted as the substitute for organization's chief in case the organization's chief is in out of office duty.",
+    ],
+  },
+];
+---
+
+<Layout
+  seo={{
+    title: "Resume | Harry Rismananda",
+    description:
+      "Full Stack Web Developer with expertise in React, Node.js, and modern web technologies. View my professional resume and experience.",
+    image: "/profile-picture.jpg",
+    type: "website",
+  }}
+>
+  <div class="min-h-screen bg-gray-50">
+    {/* Header Section */}
+    <section class="section-padding bg-white border-b border-gray-200">
+      <div class="container-custom max-w-5xl">
+        <div class="text-center animate-fade-in-up">
+          <h1 class="heading-1 text-gray-900 mb-4">
+            Muhammad Harry Rismananda
+          </h1>
+          <p class="text-2xl text-blue-600 font-semibold mb-5">
+            Full Stack Web Developer
+          </p>
+          <div
+            class="flex flex-wrap justify-center items-center gap-6 text-gray-600 mb-5"
+          >
+            <div class="flex items-center">
+              <MapPin className="w-4 h-4 mr-2" />
+              <span>Cipayung, East Jakarta, Indonesia</span>
+            </div>
+          </div>
+          <div
+            class="flex flex-wrap justify-center items-center gap-6 text-gray-600 mb-6"
+          >
+            <a
+              href="mailto:harryrismananda@gmail.com"
+              class="flex items-center hover:text-blue-600 transition-colors"
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              <span>harryrismananda@gmail.com</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/harryrismananda"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center hover:text-blue-600 transition-colors"
+            >
+              <Linkedin className="w-4 h-4 mr-2" />
+              <span>linkedin.com/in/harryrismananda</span>
+            </a>
+          </div>
+          <button class="btn-primary">
+            <Download className="w-4 h-4 mr-2" />
+            Download PDF Resume
+          </button>
+        </div>
+      </div>
+    </section>
+
+    {/* Profile Summary */}
+    <section class="section-padding">
+      <div class="container-custom max-w-5xl">
+        <div class="card-base p-6 !bg-blue-200">
+          <h2 class="heading-3 text-blue-600 mb-4">
+            Profile Summary
+          </h2>
+          <p class="text-gray-700 leading-relaxed text-lg">
+            Full Stack Web Developer who successfully transitioned from project
+            management to web development, bringing strong leadership and
+            organizational skills to technical projects. Experienced in React,
+            JavaScript, Node.js, and various databases, with hands-on experience
+            delivering user-focused applications from concept to deployment.
+            Recently completed 2 full-stack applications including a real-time
+            chat platform for solo travelers and an AI-powered language learning
+            platform with modern tech stack. Previously managed large-scale
+            digital projects with up to 12,000 participants, demonstrating
+            ability to handle complex technical requirements and coordinate
+            development teams. Adept at full-stack development, database design,
+            cloud deployment, and modern web technologies. Holds certifications
+            in project management and maintains strong problem-solving abilities
+            developed through diverse professional experiences.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Core Competencies */}
+    <section class="section-padding bg-white">
+      <div class="container-custom max-w-5xl">
+        <div class="card-base p-6 !bg-blue-200">
+          <h2 class="heading-3 text-blue-600 mb-5">
+            Core Competencies and Technical Skills
+          </h2>
+          <div class="flex flex-wrap gap-3">
+            {
+              coreCompetencies.map((skill) => (
+                <span class="px-3 py-2 text-sm bg-blue-50 text-blue-800 rounded-lg font-medium border border-blue-200 hover:bg-blue-100 transition-colors">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Technical Stack */}
+    <section class="section-padding">
+      <div class="container-custom max-w-5xl">
+        <div class="card-base p-8 !bg-blue-200">
+          <h2 class="heading-3 text-blue-600 dark:text-blue-400 mb-6">
+            Technical Stack
+          </h2>
+          <div class="grid md:grid-cols-4 gap-6">
+            <div>
+              <h4 class="font-semibold mb-4 text-gray-900 dark:text-white text-lg">
+                Frontend
+              </h4>
+              <div class="space-y-2">
+                {
+                  [
+                    "React",
+                    "JavaScript",
+                    "TypeScript",
+                    "Tailwind CSS",
+                    "HTML/CSS",
+                  ].map((tech) => (
+                    <div class="px-3 py-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center text-sm font-medium text-gray-700 dark:text-gray-300">
+                      {tech}
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-4 text-gray-900 dark:text-white text-lg">
+                Backend
+              </h4>
+              <div class="space-y-2">
+                {
+                  [
+                    "Node.js",
+                    "Express.js",
+                    "REST APIs",
+                    "Socket.io",
+                    "Jest",
+                  ].map((tech) => (
+                    <div class="px-3 py-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center text-sm font-medium text-gray-700 dark:text-gray-300">
+                      {tech}
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-4 text-gray-900 dark:text-white text-lg">
+                Database
+              </h4>
+              <div class="space-y-2">
+                {
+                  [
+                    "PostgreSQL",
+                    "MongoDB",
+                    "Sequelize",
+                    "Supabase",
+                    "Firebase",
+                  ].map((tech) => (
+                    <div class="px-3 py-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center text-sm font-medium text-gray-700 dark:text-gray-300">
+                      {tech}
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-4 text-gray-900 dark:text-white text-lg">
+                DevOps & Tools
+              </h4>
+              <div class="space-y-2">
+                {
+                  ["Git", "GitHub", "AWS", "GCP", "Docker"].map((tech) => (
+                    <div class="px-3 py-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center text-sm font-medium text-gray-700 dark:text-gray-300">
+                      {tech}
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Professional Experience */}
+    <section class="section-padding bg-white">
+      <div class="container-custom max-w-5xl">
+        <h2 class="heading-2 text-gray-900 mb-6 text-center">
+          Professional Experience
+        </h2>
+        <div class="space-y-5">
+          {
+            experiences.map((exp) => (
+              <div class="card-base p-5 hover:shadow-xl transition-all duration-300 !bg-blue-200">
+                <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
+                  <div class="flex-1">
+                    <h3 class="text-xl font-bold text-sky-600 mb-2">
+                      {exp.title}
+                    </h3>
+                    <p class="text-lg font-semibold text-gray-900">
+                      {exp.company}
+                    </p>
+                  </div>
+                  <div class="text-sm text-gray-600 space-y-1">
+                    <div class="flex items-center">
+                      <MapPin className="w-4 h-4 mr-2" />
+                      {exp.location}
+                    </div>
+                    <div class="flex items-center">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      {exp.period}
+                    </div>
+                  </div>
+                </div>
+                <ul class="space-y-3">
+                  {exp.responsibilities.map((responsibility) => (
+                    <li class="flex items-start text-gray-700">
+                      <div class="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2 flex-shrink-0" />
+                      <span>{responsibility}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    {/* Technical Projects */}
+    <section class="py-10 md:py-12">
+      <div class="container-custom max-w-5xl">
+        <div class="card-base p-5 !bg-blue-200">
+          <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+            Technical Projects
+          </h2>
+          <div class="space-y-4">
+            {
+              technicalProjects.map((project) => (
+                <div class="p-6 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-600">
+                  <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-2">
+                    {project.name}
+                  </h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                    {project.type}
+                  </p>
+                  {project.details && (
+                    <p class="text-sm text-sky-600 dark:text-sky-400 font-medium">
+                      {project.details}
+                    </p>
+                  )}
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Project Management Experience */}
+    <section class="py-10 md:py-12 bg-white dark:bg-gray-800">
+      <div class="container-custom max-w-5xl">
+        <div class="card-base p-5 ">
+          <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+            Project Management Experience
+          </h2>
+          <div class="space-y-4">
+            {
+              managementProjects.map((project) => (
+                <div class="p-6 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border border-gray-200 dark:border-gray-600">
+                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                    <div class="flex-1">
+                      <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-2">
+                        {project.name}
+                      </h4>
+                      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        {project.type}
+                      </p>
+                      {project.details && (
+                        <p class="text-sm text-sky-600 dark:text-sky-400 font-medium">
+                          {project.details}
+                        </p>
+                      )}
+                    </div>
+                    <div class="flex items-center gap-4 text-sm">
+                      <div class="flex items-center text-green-600 dark:text-green-400 font-semibold">
+                        <Users className="w-4 h-4 mr-1" />
+                        {project.participants}
+                      </div>
+                      <div class="flex items-center text-gray-600 dark:text-gray-400">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        {project.period}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Organizations */}
+    <section class="py-10 md:py-12">
+      <div class="container-custom max-w-5xl">
+        <h2 class="heading-2 text-gray-900 mb-8 text-center">
+          Organizations
+        </h2>
+        <div class="space-y-6">
+          {
+            organizations.map((org) => (
+              <div class="card-base p-5 !bg-blue-200">
+                <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
+                  <div class="flex-1">
+                    <h3 class="text-xl font-bold text-sky-600 dark:text-sky-400 mb-2">
+                      {org.title}
+                    </h3>
+                    <p class="text-lg font-semibold text-gray-900 mb-3">
+                      {org.organization}
+                    </p>
+                    <p class="text-gray-600 ">
+                      {org.description}
+                    </p>
+                  </div>
+                  <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    {org.period}
+                  </div>
+                </div>
+                <ul class="space-y-3">
+                  {org.responsibilities.map((responsibility) => (
+                    <li class="flex items-start text-gray-700 ">
+                      <div class="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2 flex-shrink-0" />
+                      <span>{responsibility}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    {/* Education & Certifications */}
+    <section class="py-10 md:py-12 bg-white dark:bg-gray-800">
+      <div class="container-custom max-w-5xl">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card-base p-5">
+            <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+              Education
+            </h2>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-2">
+                  Sultan Ageng Tirtayasa University
+                </h4>
+                <p class="text-gray-700 dark:text-gray-300 mb-1">
+                  Metallurgy Engineering (GPA 3.25)
+                </p>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  Sept. 2014 – Apr. 2019
+                </p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                  <strong>Concentration:</strong> Extractive metallurgy, Heat treatment,
+                  Material Testing
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-base p-5">
+            <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+              Licenses & Certificates
+            </h2>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <Award
+                  className="w-6 h-6 text-green-600 mr-3 mt-0.5 flex-shrink-0"
+                />
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white mb-1">
+                    Google Project Management: Specialization
+                  </h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Coursera • No expiration date
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <Globe
+                  className="w-6 h-6 text-blue-600 mr-3 mt-0.5 flex-shrink-0"
+                />
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white mb-1">
+                    IELTS Test Report Form
+                  </h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                    PT IDP Consulting Indonesia • Valid: 13/09/2021 –
+                    13/09/2023
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Languages */}
+    <section class="py-10 md:py-12">
+      <div class="container-custom max-w-5xl">
+        <div class="card-base p-5">
+          <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+            Languages
+          </h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div
+              class="flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg border border-gray-200 dark:border-gray-600"
+            >
+              <span class="font-bold text-gray-900 dark:text-white text-lg"
+                >Indonesian</span
+              >
+              <span
+                class="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-lg text-sm font-semibold"
+              >
+                Native Proficiency
+              </span>
+            </div>
+            <div
+              class="flex items-center justify-between p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg border border-gray-200 dark:border-gray-600"
+            >
+              <span class="font-bold text-gray-900 dark:text-white text-lg"
+                >English</span
+              >
+              <span
+                class="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-sky-800 dark:text-sky-300 rounded-lg text-sm font-semibold"
+              >
+                CEFR C1, IELTS 7.0
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

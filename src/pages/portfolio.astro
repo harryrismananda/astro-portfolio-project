@@ -1,0 +1,136 @@
+---
+import { PortfolioComponent } from "../components/PortfolioComponent";
+import Layout from "../layouts/Layout.astro";
+import type { IProject } from "../types/type";
+
+const projects: IProject[] = [
+  {
+    id: 1,
+    title: "Solo Traveler App",
+    description:
+      "A full-stack application targeted to solo travelers to connect with each other with modern UI/UX, real-time chat feature and responsive design.",
+    image: "/api/placeholder/600/300",
+    techStack: [
+      "React",
+      "Javascript",
+      "Socket.io",
+      "Sequelize",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Supabase",
+      "Firebase",
+      "GCP",
+    ],
+    features: [
+      "User Authentication",
+      "Real-time Updates",
+      "Real-time chat",
+      "Group chat",
+    ],
+    githubUrl: "https://github.com/harryrismananda/solo-traveler-app",
+    liveUrl: "https://solo-traveling-590fb.web.app/",
+    status: "Completed",
+    duration: "1 week",
+    team: "4 developers",
+    highlights: ["Real-time Sync", "AI-Powered", "Mobile Responsive"],
+  },
+  {
+    id: 2,
+    title: "BiblioLex - AI-powered Language Learning Platform",
+    description:
+      "A comprehensive language learning platform leveraging AI to provide learning courses and questions. Features include quiz modes, progress tracking, and CMS.",
+    image: "/api/placeholder/600/300",
+    techStack: [
+      "React",
+      "Javascript",
+      "Sequelize",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Supabase",
+      "Firebase",
+      "AWS",
+    ],
+    features: [
+      "User Authentication",
+      "Role-based Access Control",
+      "AI-powered learning course",
+      "Google sign in",
+      "Profile picture upload",
+      "CMS Dashboard",
+      "Payment Integration",
+    ],
+    githubUrl: "https://github.com/harryrismananda/IP-HCK87-Harry",
+    liveUrl: "https://biblio-lex.harryrismananda.site/",
+    status: "Completed",
+    duration: "1 week",
+    team: "1 developer",
+    highlights: ["AI-Powered", "Mobile Responsive", "Subscription Model"],
+  },
+];
+---
+
+<Layout
+  seo={{
+    title: "Portfolio | Harry Rismananda",
+    description:
+      "Explore my portfolio of full-stack web applications, showcasing modern technologies and innovative solutions.",
+    image: "/profile-picture.jpg",
+    type: "website",
+  }}
+>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Header Section -->
+    <section class="section-padding bg-white border-b border-gray-200">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto text-center animate-fade-in-up">
+          <h1 class="heading-1 text-gray-900 mb-5">
+            My Portfolio
+          </h1>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mb-5"></div>
+          <p class="text-xl text-gray-600 leading-relaxed">
+            Explore my latest projects showcasing modern web technologies,
+            innovative solutions, and attention to detail in every
+            implementation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-6xl mx-auto">
+          <PortfolioComponent projects={projects} client:load />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-white border-t border-gray-200">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="heading-2 text-gray-900 mb-4">
+            Interested in Working Together?
+          </h2>
+          <p class="text-lg text-gray-600 mb-6">
+            I'm always open to discussing new projects and opportunities.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="/#contact" class="btn-primary no-underline">
+              Get In Touch
+            </a>
+            <a href="/resume" class="btn-secondary no-underline">
+              View Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .no-underline {
+    text-decoration: none;
+  }
+</style>
