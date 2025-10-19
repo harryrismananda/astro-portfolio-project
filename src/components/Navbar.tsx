@@ -47,7 +47,7 @@ export const Navbar = () => {
           {/* Logo */}
           <div className="flex">
           <a href="/" className="flex items-center justify-between space-x-2 group">
-              <span className="text-xl font-bold  dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              <span className="text-xl font-bold  text-blue-900 bg-clip-text hover:text-gray-500 ">
                 M Harry Rismananda
               </span>
           </a>
@@ -55,7 +55,7 @@ export const Navbar = () => {
             <div></div>
           <div className="flex">
                {/* Desktop Navigation */}
-          <div className="hidden md:flex gap-10 items-center space-x-1">
+          <div className="hidden md:flex gap-3 items-center space-x-1">
             {navigation.map((item) =>
               item.isSection ? (
                 <button
@@ -65,14 +65,14 @@ export const Navbar = () => {
                 >
                   <span className="flex gap-3 items-center space-x-2">
                     <item.icon className="w-4 h-4" />
-                    <span>{item.name}</span>
+                    <span className="">{item.name}</span>
                   </span>
                 </button>
               ) : (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="group relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg text-white hover:text-black"
+                  className="group relative px-4 py-2 text-md font-medium transition-all duration-200 rounded-lg text-blue-900 hover:text-black"
                 >
                   <span className="flex gap-3 items-center space-x-2">
                     <item.icon className="w-4 h-4" />

@@ -8,28 +8,28 @@ const Sidebar = () => {
           <a href="/">
             <Home
               size={22}
-              color="white"
+              color="#1c398e"
               className="cursor-pointer hover:opacity-80"
             />
           </a>
           <a href="/#about">
             <User
               size={22}
-              color="white"
+              color="#1c398e"
               className="cursor-pointer hover:opacity-80"
             />
           </a>
           <a href="/portfolio">
             <Folder
               size={22}
-              color="white"
+              color="#1c398e"
               className="cursor-pointer hover:opacity-80"
             />
           </a>
           <a href="/#contact">
             <Mail
               size={22}
-              color="white"
+              color="#1c398e"
               className="cursor-pointer hover:opacity-80"
             />
           </a>
