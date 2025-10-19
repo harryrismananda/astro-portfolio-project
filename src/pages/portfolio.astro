@@ -80,10 +80,10 @@ const projects: IProject[] = [
 >
   <div class="min-h-screen bg-gray-50">
     <!-- Header Section -->
-    <section class="section-padding bg-white border-b border-gray-200">
-      <div class="container-custom">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-white border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto text-center animate-fade-in-up">
-          <h1 class="heading-1 text-gray-900 mb-5">My Portfolio</h1>
+          <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-gray-900 mb-5">My Portfolio</h1>
           <div class="w-20 h-1 bg-indigo-600 mx-auto mb-5"></div>
           <p class="text-xl text-gray-600 leading-relaxed">
             Explore my latest projects showcasing modern web technologies,
@@ -95,8 +95,8 @@ const projects: IProject[] = [
     </section>
 
     <!-- Projects Section -->
-    <section class="section-padding">
-      <div class="container-custom">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-6xl mx-auto">
           <PortfolioComponent projects={projects} client:load />
         </div>
@@ -104,20 +104,20 @@ const projects: IProject[] = [
     </section>
 
     <!-- CTA Section -->
-    <section class="section-padding bg-white border-t border-gray-200">
-      <div class="container-custom">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center">
-          <h2 class="heading-2 text-gray-900 mb-4">
+          <h2 class="text-4xl font-bold leading-tight tracking-tight text-gray-900 mb-4">
             Interested in Working Together?
           </h2>
           <p class="text-lg text-gray-600 mb-6">
             I'm always open to discussing new projects and opportunities.
           </p>
           <div class="flex flex-wrap gap-4 justify-center">
-            <a href="/#contact" class="btn-primary no-underline">
+            <a href="/#contact" class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-7 py-3.5 rounded-lg font-semibold text-[15px] transition-all duration-250 shadow-[0_4px_12px_rgba(99,102,241,0.25)] hover:from-indigo-700 hover:to-indigo-800 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(99,102,241,0.35)] no-underline">
               Get In Touch
             </a>
-            <a href="/resume" class="btn-secondary no-underline">
+            <a href="/resume" class="bg-white text-indigo-600 border-2 border-indigo-200 px-7 py-3.5 rounded-lg font-semibold text-[15px] transition-all duration-250 hover:bg-indigo-50 hover:border-indigo-400 hover:-translate-y-0.5 hover:shadow-md no-underline">
               View Resume
             </a>
           </div>

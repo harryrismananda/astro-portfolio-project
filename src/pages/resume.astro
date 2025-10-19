@@ -157,10 +157,10 @@ const organizations = [
 >
   <div class="min-h-screen bg-gray-50">
     {/* Header Section */}
-    <section class="section-padding bg-white border-b border-gray-200">
-      <div class="container-custom max-w-5xl">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-white border-b border-gray-200">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center animate-fade-in-up">
-          <h1 class="heading-1 text-gray-900 mb-4">
+          <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-gray-900 mb-4">
             Muhammad Harry Rismananda
           </h1>
           <p class="text-2xl text-indigo-600 font-semibold mb-5">
@@ -194,7 +194,7 @@ const organizations = [
               <span>linkedin.com/in/harryrismananda</span>
             </a>
           </div>
-          <button class="btn-primary">
+          <button class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-7 py-3.5 rounded-lg font-semibold text-[15px] transition-all duration-250 shadow-[0_4px_12px_rgba(99,102,241,0.25)] hover:from-indigo-700 hover:to-indigo-800 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(99,102,241,0.35)] border-none cursor-pointer inline-flex items-center gap-2">
             <Download className="w-4 h-4 mr-2" />
             Download PDF Resume
           </button>
@@ -203,10 +203,10 @@ const organizations = [
     </section>
 
     {/* Profile Summary */}
-    <section class="section-padding">
-      <div class="container-custom max-w-5xl">
-        <div class="card-base p-6">
-          <h2 class="heading-3 text-indigo-600 mb-4">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-6">
+          <h2 class="text-3xl md:text-4xl font-bold leading-snug text-indigo-600 mb-4">
             Profile Summary
           </h2>
           <p class="text-gray-700 leading-relaxed text-lg">
@@ -217,13 +217,13 @@ const organizations = [
     </section>
 
     {/* Core Competencies */}
-    <section class="section-padding bg-white">
-      <div class="container-custom max-w-5xl">
-        <div class="card-base p-6">
-          <h2 class="heading-3 text-indigo-600 mb-5">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-6">
+          <h2 class="text-3xl md:text-4xl font-bold leading-snug text-indigo-600 mb-5">
             Core Competencies and Technical Skills
           </h2>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-col gap-3">
             {
               coreCompetencies.map((skill) => (
                 <span class="px-3 py-2 text-sm bg-indigo-50 text-indigo-800 rounded-lg font-medium border border-indigo-200 hover:bg-indigo-100 transition-colors">
@@ -237,10 +237,10 @@ const organizations = [
     </section>
 
     {/* Technical Stack */}
-    <section class="section-padding">
-      <div class="container-custom max-w-5xl">
-        <div class="card-base p-6">
-          <h2 class="heading-3 text-indigo-600 mb-6">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-6">
+          <h2 class="text-3xl md:text-4xl font-bold leading-snug text-indigo-600 mb-6">
             Technical Stack
           </h2>
           <div class="grid md:grid-cols-4 gap-6">
@@ -324,15 +324,15 @@ const organizations = [
     </section>
 
     {/* Professional Experience */}
-    <section class="section-padding bg-white">
-      <div class="container-custom max-w-5xl">
-        <h2 class="heading-2 text-gray-900 mb-6 text-center">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold leading-tight tracking-tight text-gray-900 mb-6 text-center">
           Professional Experience
         </h2>
         <div class="space-y-5">
           {
             experiences.map((exp) => (
-              <div class="card-base p-5 hover:shadow-xl transition-all duration-300">
+              <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-5 hover:shadow-xl hover:-translate-y-0.5">
                 <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
                   <div class="flex-1">
                     <h3 class="text-xl font-bold text-sky-600 mb-2">
@@ -370,9 +370,9 @@ const organizations = [
 
     {/* Technical Projects */}
     <section class="py-10 md:py-12">
-      <div class="container-custom max-w-5xl">
-        <div class="card-base p-5">
-          <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-5">
+          <h2 class="text-3xl md:text-4xl font-bold leading-snug text-sky-600 dark:text-sky-400 mb-6">
             Technical Projects
           </h2>
           <div class="space-y-4">
@@ -400,9 +400,9 @@ const organizations = [
 
     {/* Project Management Experience */}
     <section class="py-10 md:py-12 bg-white dark:bg-gray-800">
-      <div class="container-custom max-w-5xl">
-        <div class="card-base p-5 ">
-          <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-5 ">
+          <h2 class="text-3xl md:text-4xl font-bold leading-snug text-sky-600 dark:text-sky-400 mb-6">
             Project Management Experience
           </h2>
           <div class="space-y-4">
@@ -444,14 +444,14 @@ const organizations = [
 
     {/* Organizations */}
     <section class="py-10 md:py-12">
-      <div class="container-custom max-w-5xl">
-        <h2 class="heading-2 text-gray-900 mb-8 text-center">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold leading-tight tracking-tight text-gray-900 mb-8 text-center">
           Organizations
         </h2>
         <div class="space-y-6">
           {
             organizations.map((org) => (
-              <div class="card-base p-5">
+              <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-5">
                 <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
                   <div class="flex-1">
                     <h3 class="text-xl font-bold text-sky-600 dark:text-sky-400 mb-2">
@@ -486,10 +486,10 @@ const organizations = [
 
     {/* Education & Certifications */}
     <section class="py-10 md:py-12 bg-white dark:bg-gray-800">
-      <div class="container-custom max-w-5xl">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-6">
-          <div class="card-base p-5">
-            <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+          <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-5">
+            <h2 class="text-3xl md:text-4xl font-bold leading-snug text-sky-600 dark:text-sky-400 mb-6">
               Education
             </h2>
             <div class="space-y-4">
@@ -511,8 +511,8 @@ const organizations = [
             </div>
           </div>
 
-          <div class="card-base p-5">
-            <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+          <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-5">
+            <h2 class="text-3xl md:text-4xl font-bold leading-snug text-sky-600 dark:text-sky-400 mb-6">
               Licenses & Certificates
             </h2>
             <div class="space-y-6">
@@ -551,9 +551,9 @@ const organizations = [
 
     {/* Languages */}
     <section class="py-10 md:py-12">
-      <div class="container-custom max-w-5xl">
-        <div class="card-base p-5">
-          <h2 class="heading-3 text-sky-600 dark:text-sky-400 mb-6">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),_0_1px_2px_rgba(0,0,0,0.02)] border border-gray-200 transition-all duration-250 overflow-hidden p-5">
+          <h2 class="text-3xl md:text-4xl font-bold leading-snug text-sky-600 dark:text-sky-400 mb-6">
             Languages
           </h2>
           <div class="grid sm:grid-cols-2 gap-4">

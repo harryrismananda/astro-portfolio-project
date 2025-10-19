@@ -30,7 +30,7 @@ export const Navbar = () => {
 
   const navigation = [
     { name: "Home", href: "/", icon: Home, isSection: false },
-    { name: "About", href: "/", icon: User, isSection: false },
+    { name: "About", href: "/#about", icon: User, isSection: false },
     {
       name: "Portfolio",
       href: "/portfolio",
@@ -41,7 +41,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50  bg-blue-400 backdrop-blur-sm border-b  shadow-sm">
+    <nav className="sticky top-0 z-50  bg-[#9babfe] backdrop-blur-sm border-b shadow-sm">
       <div className="mx-auto max-w-full px-6">
         <div className="flex  h-17 gap-4 px-5 items-center min-w-full justify-evenly">
           {/* Logo */}
@@ -84,12 +84,12 @@ export const Navbar = () => {
 
             {/* CTA Button */}
             <button
-              className="ml-4 px-5 w-35 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2"
+              className="ml-4 px-5 w-full py-2 bg-blue-700  hover:bg-[#1d1b50] hover:cursor-pointer text-white rounded-lg font-medium transition-all duration-200 flex flex-row items-center justify-center gap-2"
               onClick={() =>
                 (window.location.href = "mailto:harryrismananda@gmail.com")
               }
             >
-              <Mail className="w-4 h-4 px-5" />
+              <Mail className="" />
               <span className="flex justify-center items-center ">Hire Me</span>
             </button>
           </div>
@@ -115,7 +115,7 @@ export const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-gray-200 dark:border-gray-800 py-4 animate-fade-in">
+          <div className="md:hidden border-t border-gray-200 dark:border-gray-800 py-4 animate-[fade-in_0.4s_ease-out]">
             <div className="space-y-2">
               {navigation.map((item) =>
                 item.isSection ? (
