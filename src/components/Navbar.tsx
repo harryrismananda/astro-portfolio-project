@@ -1,5 +1,5 @@
 import { Home, Mail } from "@mui/icons-material";
-import { Briefcase, FileText, User, X, Menu } from "lucide-react";
+import { Briefcase, FileText, User, X, Menu, Folder } from "lucide-react";
 import { useState } from "react";
 
 export const Navbar = () => {
@@ -34,7 +34,7 @@ export const Navbar = () => {
     {
       name: "Portfolio",
       href: "/portfolio",
-      icon: Briefcase,
+      icon: Folder,
       isSection: false,
     },
     { name: "Resume", href: "/resume", icon: FileText, isSection: false }
@@ -42,8 +42,8 @@ export const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50  bg-blue-400 backdrop-blur-sm border-b  shadow-sm">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-row h-16 gap-4 px-5 justify-center">
+      <div className="mx-auto max-w-full px-6">
+        <div className="flex  h-17 gap-4 px-5 items-center min-w-full justify-evenly">
           {/* Logo */}
           <div className="flex">
           <a href="/" className="flex items-center justify-between space-x-2 group">
@@ -52,8 +52,8 @@ export const Navbar = () => {
               </span>
           </a>
           </div>
-            
-          <div className="flex flex-row items-center justify-end">
+            <div></div>
+          <div className="flex">
                {/* Desktop Navigation */}
           <div className="hidden md:flex gap-10 items-center space-x-1">
             {navigation.map((item) =>
