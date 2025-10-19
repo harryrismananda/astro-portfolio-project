@@ -5,41 +5,36 @@ import profilePicture from "../assets/profile-picture.jpg";
 <!-- Hero Section -->
 <section
   id="hero"
-  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50"
 >
-  <!-- Decorative Elements -->
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div
-      class="absolute top-20 right-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"
-    >
-    </div>
-    <div
-      class="absolute bottom-20 left-20 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl"
-    >
-    </div>
-  </div>
-
-  <div class="container-custom relative z-10">
+  <div class="container-custom relative z-10 flex flex-col gap-5">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <!-- Text Content -->
-      <div class="space-y-8 animate-slide-in-left">
-        <div class="space-y-4">
+      <div class="space-y-8 animate-slide-in-left flex flex-col gap-5">
+        <div class="space-y-4 flex flex-col justify-between gap-5">
           <p
-            class="text-blue-600 font-semibold text-lg tracking-wide uppercase"
+            class="text-indigo-600 font-semibold text-lg tracking-wide uppercase"
           >
-            Full Stack Web Developer
+            Software Developer | Project Manager
           </p>
           <h1 class="heading-1 text-gray-900">
-            Hi, I'm <span class="text-blue-600">Harry Rismananda</span>
+            Hi, I'm <span class="text-indigo-600">Harry</span>
           </h1>
           <p class="text-xl text-gray-600 leading-relaxed">
             Available for remote work worldwide
           </p>
           <p class="text-lg text-gray-600 leading-relaxed">
-            Full Stack Web Developer with hands-on experience building modern,
-            scalable web applications. I specialize in React, JavaScript,
-            Node.js, and database design, creating user-focused solutions from
-            concept to deployment.
+            Full Stack Software Developer who successfully transitioned from
+            project management to web development, bringing strong leadership
+            and organizational skills to technical projects. Experienced in
+            React, JavaScript, Node.js, and various databases, with hands-on
+            experience delivering user-focused applications from concept to
+            deployment. Previously managed large-scale digital projects with up
+            to 12,000 participants, demonstrating ability to handle complex
+            technical requirements and coordinate development teams. Holds
+            certifications in project management, software developer and
+            maintains strong problem-solving abilities developed through diverse
+            professional experiences.
           </p>
         </div>
 
@@ -98,7 +93,7 @@ import profilePicture from "../assets/profile-picture.jpg";
             href="https://github.com/harryrismananda"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-200 hover:scale-110"
+            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all duration-200 hover:scale-110"
             aria-label="GitHub"
           >
             <svg
@@ -114,10 +109,10 @@ import profilePicture from "../assets/profile-picture.jpg";
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/harryrismananda"
+            href="https://www.linkedin.com/in/harryrismananda/"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-200 hover:scale-110"
+            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all duration-200 hover:scale-110"
             aria-label="LinkedIn"
           >
             <svg
@@ -134,7 +129,7 @@ import profilePicture from "../assets/profile-picture.jpg";
           </a>
           <a
             href="mailto:harryrismananda@gmail.com"
-            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-200 hover:scale-110"
+            class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all duration-200 hover:scale-110"
             aria-label="Email"
           >
             <svg
@@ -159,77 +154,45 @@ import profilePicture from "../assets/profile-picture.jpg";
 
       <!-- Profile Image -->
       <div class="relative animate-slide-in-right">
-        <div class="relative w-full max-w-sm mx-auto">
-          <!-- Decorative border -->
-          <div
-            class="absolute -inset-4 bg-blue-600 rounded-2xl transform rotate-3"
-          >
-          </div>
-          <div
-            class="absolute -inset-4 bg-indigo-600 rounded-2xl transform -rotate-3"
-          >
-          </div>
+        <div class="relative w-full max-w-xs mx-auto">
           <!-- Image container -->
-          <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+          <div
+            class="relative overflow-hidden rounded-full shadow-lg h-90 w-85 sm:h-100 sm:w-85"
+          >
             <img
               src={profilePicture.src}
               alt="Harry Rismananda"
-              class="w-full h-auto object-cover"
+              class="h-full w-full shadow-inner object-cover rounded-full"
             />
           </div>
         </div>
-
-        <!-- Stats Cards -->
       </div>
     </div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="section-padding bg-gray-50">
-  <div class="container-custom">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-10 animate-fade-in-up">
-        <h2 class="heading-2 text-gray-900 mb-4">About Me</h2>
-        <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 stagger-children">
+      <div
+        class="text-center p-4 bg-white rounded-xl shadow-sm border border-gray-100"
+      >
+        <div class="text-2xl font-bold text-blue-600">1+</div>
+        <div class="text-sm text-gray-600 mt-1">Year Development</div>
       </div>
-
-      <div class="space-y-5 text-lg text-gray-600">
-        <p class="leading-relaxed">
-          I'm a Full Stack Web Developer with hands-on experience building
-          modern, scalable web applications. I successfully transitioned from
-          project management to web development, bringing strong leadership and
-          organizational skills to technical projects. I have experience with
-          React, JavaScript, Node.js, and various databases.
-        </p>
-        <p class="leading-relaxed">
-          I've built and launched 2 applications including a real-time chat
-          platform for solo travelers and an AI-powered language learning
-          platform. My background in managing large-scale digital projects helps
-          me understand both the technical and business aspects of software
-          development. I'm passionate about creating user-focused applications
-          that solve real-world problems.
-        </p>
+      <div
+        class="text-center p-4 bg-white rounded-xl shadow-sm border border-gray-100"
+      >
+        <div class="text-2xl font-bold text-indigo-600">5</div>
+        <div class="text-sm text-gray-600 mt-1">Applications Built</div>
       </div>
-
-      <!-- Quick Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mt-10 stagger-children">
-        <div class="text-center p-5 bg-blue-200 rounded-xl">
-          <div class="text-2xl font-bold text-blue-600">1+</div>
-          <div class="text-sm text-gray-600 mt-2">Year Development</div>
-        </div>
-        <div class="text-center p-5 bg-blue-200 rounded-xl">
-          <div class="text-2xl font-bold text-indigo-600">2</div>
-          <div class="text-sm text-gray-600 mt-2">Applications Built</div>
-        </div>
-        <div class="text-center p-5 bg-blue-200 rounded-xl">
-          <div class="text-2xl font-bold text-blue-600">2</div>
-          <div class="text-sm text-gray-600 mt-2">Projects Deployed</div>
-        </div>
-        <div class="text-center p-5 bg-blue-200 rounded-xl">
-          <div class="text-2xl font-bold text-indigo-600">10+</div>
-          <div class="text-sm text-gray-600 mt-2">Technologies</div>
-        </div>
+      <div
+        class="text-center p-4 bg-white rounded-xl shadow-sm border border-gray-100"
+      >
+        <div class="text-2xl font-bold text-blue-600">5</div>
+        <div class="text-sm text-gray-600 mt-1">Projects Deployed</div>
+      </div>
+      <div
+        class="text-center p-4 bg-white rounded-xl shadow-sm border border-gray-100"
+      >
+        <div class="text-2xl font-bold text-indigo-600">10+</div>
+        <div class="text-sm text-gray-600 mt-1">Technologies</div>
       </div>
     </div>
   </div>
@@ -237,18 +200,20 @@ import profilePicture from "../assets/profile-picture.jpg";
 
 <!-- Technical Expertise Section -->
 <section id="skills" class="section-padding bg-white">
-  <div class="container-custom">
+  <div class="container-custom flex flex-col gap-5">
     <div class="text-center mb-12 animate-fade-in-up">
       <h2 class="heading-2 text-gray-900 mb-4">Technical Expertise</h2>
-      <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+      <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
       <!-- Frontend -->
-      <div class="card-base p-6 border-t-4 border-blue-600 !bg-blue-200">
+      <div
+        class="card-base p-6 border-t-4 border-indigo-600 flex flex-col gap-3"
+      >
         <div class="mb-5">
           <div
-            class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-4"
+            class="w-full h-15 bg-indigo-100 rounded-xl flex flex-row gap-3 items-center justify-center mb-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -265,10 +230,12 @@ import profilePicture from "../assets/profile-picture.jpg";
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
+            <div>
+              <h3 class="heading-3 text-gray-900 mb-3">Frontend</h3>
+            </div>
           </div>
-          <h3 class="heading-3 text-white mb-3">Frontend</h3>
         </div>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-2">
           {
             [
               "React",
@@ -278,7 +245,7 @@ import profilePicture from "../assets/profile-picture.jpg";
               "Next.js",
               "Javascript",
             ].map((tech) => (
-              <span class="w-25 flex items-center justify-center px-3 py-5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+              <span class="w-25 flex items-center justify-center px-3 py-5 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium">
                 {tech}
               </span>
             ))
@@ -287,10 +254,12 @@ import profilePicture from "../assets/profile-picture.jpg";
       </div>
 
       <!-- Backend -->
-      <div class="card-base p-6 border-t-4 border-indigo-600 !bg-blue-200">
+      <div
+        class="card-base p-6 border-t-4 border-purple-600 flex flex-col gap-3"
+      >
         <div class="mb-5">
           <div
-            class="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-4"
+            class="w-full h-16 bg-purple-100 rounded-xl items-center justify-center mb-4 flex flex-row gap-5"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -309,8 +278,10 @@ import profilePicture from "../assets/profile-picture.jpg";
               <line x1="6" y1="6" x2="6.01" y2="6"></line>
               <line x1="6" y1="18" x2="6.01" y2="18"></line>
             </svg>
+            <div>
+              <h3 class="heading-3 text-gray-900 mb-3">Backend</h3>
+            </div>
           </div>
-          <h3 class="heading-3 text-white mb-3">Backend</h3>
         </div>
         <div class="flex flex-wrap gap-2">
           {
@@ -332,10 +303,10 @@ import profilePicture from "../assets/profile-picture.jpg";
       </div>
 
       <!-- DevOps -->
-      <div class="card-base p-6 border-t-4 border-blue-600 !bg-blue-200">
+      <div class="card-base p-6 border-t-4 border-cyan-600 flex flex-col gap-3">
         <div class="mb-5">
           <div
-            class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-4"
+            class="w-full h-16 bg-cyan-100 rounded-xl flex flex-row gap-5 items-center justify-center mb-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -347,20 +318,22 @@ import profilePicture from "../assets/profile-picture.jpg";
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="text-blue-600"
+              class="text-cyan-600"
             >
               <circle cx="12" cy="12" r="10"></circle>
               <circle cx="12" cy="12" r="6"></circle>
               <circle cx="12" cy="12" r="2"></circle>
             </svg>
+            <div>
+              <h3 class="heading-3 text-gray-900 mb-3">DevOps</h3>
+            </div>
           </div>
-          <h3 class="heading-3 text-white mb-3">DevOps</h3>
         </div>
         <div class="flex flex-wrap gap-2">
           {
             ["Git", "GitHub", "Docker", "AWS", "GCP", "CI/CD", "Linux"].map(
               (tech) => (
-                <span class="flex w-25 justify-center items-center px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+                <span class="flex w-25 justify-center items-center px-3 py-1 bg-cyan-50 text-cyan-700 rounded-full text-sm font-medium">
                   {tech}
                 </span>
               )
@@ -378,7 +351,7 @@ import profilePicture from "../assets/profile-picture.jpg";
     <div class="max-w-4xl mx-auto text-center">
       <div class="animate-fade-in-up space-y-5">
         <h2 class="heading-2 text-gray-900">Let's Work Together</h2>
-        <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+        <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
         <p class="text-xl text-gray-600 leading-relaxed">
           I'm always interested in new opportunities and exciting development
           projects. Whether you need a full stack solution, web application, or

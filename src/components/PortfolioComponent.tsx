@@ -18,28 +18,28 @@ export const PortfolioComponent = (props: IProps) => {
   };
 
   return (
-    <div className="space-y-12 flex flex-col gap-5 w-full h-full">
+    <div className="space-y-10 w-full flex flex-col gap-5">
       {props.projects.map((project, index) => (
         <div
           key={project.id}
-          className={`card-base  overflow-hidden ${
+          className={`bg-white rounded-2xl border-2 border-gray-300 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${
             index % 2 === 0 ? "animate-slide-in-left" : "animate-slide-in-right"
           }`}
         >
-          <div className="grid lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {/* Project Visual */}
             <div
-              className={`lg:col-span-2 relative bg-blue-600 min-h-[280px] flex items-center justify-center ${
-                index % 2 === 1 ? "lg:order-2" : ""
+              className={`relative bg-gradient-to-br from-indigo-600 to-purple-700 min-h-[400px] flex items-center justify-center ${
+                index % 2 === 1 ? "lg:order-2" : "lg:order-1"
               }`}
             >
-              <div className="absolute inset-0 bg-blue-600/90 flex items-center justify-center">
-                <div className="text-white text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/95 to-purple-700/95 flex items-center justify-center p-8">
+                <div className="text-white text-center max-w-md">
+                  <div className="w-28 h-28 mx-auto mb-6 bg-white/15 rounded-3xl flex items-center justify-center backdrop-blur-sm border-2 border-white/30">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="40"
-                      height="40"
+                      width="56"
+                      height="56"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -51,9 +51,9 @@ export const PortfolioComponent = (props: IProps) => {
                       <polyline points="8 6 2 12 8 18"></polyline>
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                  <h3 className="text-3xl font-bold mb-4 leading-tight">{project.title}</h3>
                   <span
-                    className={`inline-block w-50 px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(
+                    className={`inline-block px-5 py-2 rounded-full text-base font-bold border-2 ${getStatusColor(
                       project.status
                     )}`}
                   >
@@ -65,28 +65,28 @@ export const PortfolioComponent = (props: IProps) => {
 
             {/* Project Details */}
             <div
-              className={` lg:col-span-3 p-8 ${
-                index % 2 === 1 ? "lg:order-1" : ""
+              className={`p-8 lg:p-10 ${
+                index % 2 === 1 ? "lg:order-1" : "lg:order-2"
               }`}
             >
-              <div className="space-y-6 space-x-6 flex flex-col gap-5 py-5 px-5 mx-5 justify-between items-center">
+              <div className="flex flex-col justify-between h-full space-y-15">
                 {/* Description */}
-                <div>
-                  <p className="text-white text-lg leading-relaxed">
+                <div className="space-y-4">
+                  <p className="text-gray-900 text-lg leading-relaxed font-medium">
                     {project.description}
                   </p>
                 </div>
 
                 {/* Tech Stack */}
-                <div className="w-full flex flex-col py-5 my-5 gap-3">
-                  <h4 className="flex font-semibold text-sm uppercase tracking-wide text-white mb-3">
+                <div className="space-y-3">
+                  <h4 className="font-bold text-base uppercase tracking-wider text-gray-900">
                     Tech Stack
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 w-25 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium border border-blue-200"
+                        className="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-lg text-sm font-bold border-2 border-indigo-200"
                       >
                         {tech}
                       </span>
@@ -95,18 +95,18 @@ export const PortfolioComponent = (props: IProps) => {
                 </div>
 
                 {/* Key Features */}
-                <div>
-                  <h4 className="font-semibold text-sm uppercase tracking-wide text-white mb-3">
+                <div className="space-y-3">
+                  <h4 className="font-bold text-base uppercase tracking-wider text-gray-900">
                     Key Features
                   </h4>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  <ul className="space-y-3">
                     {project.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-start text-white"
+                        className="flex items-start text-gray-900"
                       >
                         <svg
-                          className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0"
+                          className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -114,55 +114,55 @@ export const PortfolioComponent = (props: IProps) => {
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            strokeWidth="2"
+                            strokeWidth="3"
                             d="M5 13l4 4L19 7"
-                          />
+                          ></path>
                         </svg>
-                        <span>{feature}</span>
+                        <span className="text-base font-semibold leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Project Stats & Highlights */}
-                <div className="flex flex-wrap gap-10 pt-3 border-t border-gray-200 text-white">
-                  <div className="flex items-center text-sm">
-                    <Calendar className="w-4 h-4 mr-2 text-blue-600" />
-                    <span className="font-medium">{project.duration}</span>
+                <div className="flex flex-wrap gap-4 pt-6 border-t-2 border-gray-300">
+                  <div className="flex items-center text-base text-gray-900">
+                    <Calendar className="w-5 h-5 mr-2 text-indigo-600" />
+                    <span className="font-bold">{project.duration}</span>
                   </div>
-                  <div className="flex items-center text-sm">
-                    <Users className="w-4 h-4 mr-2 text-blue-600" />
-                    <span className="font-medium">{project.team}</span>
+                  <div className="flex items-center text-base text-gray-900">
+                    <Users className="w-5 h-5 mr-2 text-indigo-600" />
+                    <span className="font-bold">{project.team}</span>
                   </div>
                   {project.highlights.map((highlight) => (
                     <div
                       key={highlight}
-                      className="flex items-center text-sm text-blue-400"
+                      className="flex items-center text-base text-indigo-700 bg-indigo-100 px-4 py-2 rounded-full border-2 border-indigo-300"
                     >
-                      <Star className="w-4 h-4 mr-1 fill-current" />
-                      <span className="font-medium">{highlight}</span>
+                      <Star className="w-5 h-5 mr-2 fill-current" />
+                      <span className="font-bold">{highlight}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-wrap gap-3 pt-2">
+                <div className="flex flex-wrap gap-4 pt-4">
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-200 hover:scale-105"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-xl font-bold text-base hover:bg-gray-800 transition-all duration-200 hover:scale-105 shadow-lg"
                   >
-                    <Github className="w-4 h-4" />
+                    <Github className="w-5 h-5" />
                     View Code
                   </a>
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:scale-105"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-bold text-base hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 hover:scale-105 shadow-lg"
                   >
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-5 h-5" />
                     Live Demo
                   </a>
                 </div>
