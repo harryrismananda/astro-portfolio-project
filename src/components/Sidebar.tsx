@@ -1,24 +1,40 @@
 import { Folder, Home, Mail, User } from "lucide-react";
 
 const Sidebar = () => {
+  const handleNavigation = (href: string) => {
+    if (href.startsWith("/#")) {
+      const sectionId = href.substring(2);
+      if (window.location.pathname !== "/") {
+        window.location.href = "/" + href;
+      } else {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    } else {
+      window.location.href = href;
+    }
+  };
+
   return (
     <div>
       <aside className="hidden md:flex fixed z-40 bg-[#9babfe] h-[50vh] w-14  flex-col justify-between items-center p-4 left-0 top-1/4 rounded-e-3xl">
         <ul className="flex flex-col justify-evenly items-center h-full  text-gray-50">
-          <a href="/">
+          <button onClick={() => handleNavigation("/#hero")}>
             <Home
               size={22}
               color="#1c398e"
               className="cursor-pointer hover:opacity-80"
             />
-          </a>
-          <a href="/#about">
+          </button>
+          <button onClick={() => handleNavigation("/#about")}>
             <User
               size={22}
               color="#1c398e"
               className="cursor-pointer hover:opacity-80"
             />
-          </a>
+          </button>
           <a href="/portfolio">
             <Folder
               size={22}
@@ -26,13 +42,13 @@ const Sidebar = () => {
               className="cursor-pointer hover:opacity-80"
             />
           </a>
-          <a href="/#contact">
+          <button onClick={() => handleNavigation("/#contact")}>
             <Mail
               size={22}
               color="#1c398e"
               className="cursor-pointer hover:opacity-80"
             />
-          </a>
+          </button>
         </ul>
       </aside>
     </div>
