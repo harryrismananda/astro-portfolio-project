@@ -1,5 +1,5 @@
 ---
-import { PortfolioComponent } from "../components/PortfolioComponent";
+import { PortfolioGrid } from "../components/PortfolioGrid";
 import Layout from "../layouts/Layout.astro";
 import type { IProject } from "../types/type";
 
@@ -8,8 +8,8 @@ const projects: IProject[] = [
     id: 1,
     title: "Solo Traveler App",
     description:
-      "A full-stack application targeted to solo travelers to connect with each other with modern UI/UX, real-time chat feature and responsive design.",
-    image: "/api/placeholder/600/300",
+      "A full-stack application targeted to solo travelers to connect with each other with modern UI/UX, real-time chat feature and responsive design. Built with a team of 4 developers in 1 week.",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761485481/gp-image_ycgelp.png",
     techStack: [
       "React",
       "Javascript",
@@ -20,6 +20,7 @@ const projects: IProject[] = [
       "Supabase",
       "Firebase",
       "GCP",
+      "Redis",
     ],
     features: [
       "User Authentication",
@@ -32,23 +33,25 @@ const projects: IProject[] = [
     status: "Completed",
     duration: "1 week",
     team: "4 developers",
-    highlights: ["Real-time Sync", "AI-Powered", "Mobile Responsive"],
+    highlights: ["Real-time Chat", "AI-Powered", "Mobile Responsive"],
+    category: "Web App",
+    createdAt: "2025-09-22",
   },
   {
     id: 2,
     title: "BiblioLex - AI-powered Language Learning Platform",
     description:
-      "A comprehensive language learning platform leveraging AI to provide learning courses and questions. Features include quiz modes, progress tracking, and CMS.",
-    image: "/api/placeholder/600/300",
+      "A comprehensive language learning platform leveraging AI to provide personalized learning courses and questions. Features include quiz modes, progress tracking, subscription model, and payment integration.",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761485480/ip-image_tunxhp.png",
     techStack: [
       "React",
       "Javascript",
       "Sequelize",
       "PostgreSQL",
       "Tailwind CSS",
+      "Gemini AI API",
+      "Midtrans Payment",
       "Supabase",
-      "Firebase",
-      "AWS",
     ],
     features: [
       "User Authentication",
@@ -58,13 +61,104 @@ const projects: IProject[] = [
       "Profile picture upload",
       "CMS Dashboard",
       "Payment Integration",
+      "Subscription Management",
     ],
     githubUrl: "https://github.com/harryrismananda/IP-HCK87-Harry",
     liveUrl: "https://biblio-lex.harryrismananda.site/",
     status: "Completed",
     duration: "1 week",
     team: "1 developer",
-    highlights: ["AI-Powered", "Mobile Responsive", "Subscription Model"],
+    highlights: ["AI-Powered", "Mobile Responsive", "Subscription Model", "CMS"],
+    category: "Web App",
+    createdAt: "2025-09-18",
+  },
+  {
+    id: 3,
+    title: "Asyik Store - E-commerce Platform",
+    description:
+      "A full-featured e-commerce application cloned from a popular Japanese brand sport store. Includes product catalog, user authentication, and responsive design.",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761485480/asyik-image_zug0mg.png",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "MongoDB",
+      "Tailwind CSS"
+    ],
+    features: [
+      "Product Catalog",
+      "User Authentication",
+      "Infinite Scrolling",
+      "Wishlist",
+    ],
+    githubUrl: "https://github.com/harryrismananda/asyik-shoes-and-apparel-store",
+    liveUrl: "https://asyik.harryrismananda.site/",
+    status: "Completed",
+    duration: "2 weeks",
+    team: "1 developer",
+    highlights: ["E-commerce", "Responsive Design", "Full-Stack"],
+    category: "Web App",
+    createdAt: "2025-10-09",
+  },
+  {
+    id: 4,
+    title: "X Clone - Social Media Platform",
+    description:
+      "A full-stack social media application inspired by X (formerly Twitter). Built with React Native and GraphQL, post creation, likes, comments, and user profiles.",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761555169/x-clone_lm93wh.png",
+    techStack: [
+      "React Native",
+      "Expo",
+      "Apollo Client",
+      "Apollo Server",
+      "GraphQL",
+      "MongoDB",
+      "TypeScript",
+    ],
+    features: [
+      "Post Creation",
+      "User Feed",
+      "Likes & Comments",
+      "User Profiles",
+      "Follow System",
+    ],
+    githubUrl: "https://github.com/harryrismananda/x-clone",
+    liveUrl: "https://expo.dev/preview/update?message=feat%3A+Enhance+FollowNavigator+with+SafeAreaView+and+custom+tab+styles%3B+update+Following+and+Follower+screens+to+remove+headers+a&updateRuntimeVersion=1.0.0&createdAt=2025-10-03T13%3A18%3A32.911Z&slug=exp&projectId=115361d9-8b65-493b-afa7-b5f6a1f2b7c5&group=2e3530d4-f0e5-4648-b32e-7e9a7305f435",
+    status: "Completed",
+    duration: "1 weeks",
+    team: "1 developer",
+    highlights: ["Mobile App", "GraphQL", "Social Media", "Full-Stack"],
+    category: "Mobile App",
+    createdAt: "2025-10-03",
+  },
+  {
+    id: 5,
+    title: "Melodix",
+    description:
+      "Melodix is a music recognition mobile application designed to identify songs playing around users in just a few seconds.",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761555178/melodix-image_yk0asc.png",
+    techStack: [
+      "React Native",
+      "Expo",
+      "Express.js",
+      "MongoDB",
+      "TypeScript",
+    ],
+    features: [
+      "Song Identification",
+      "Music Recognition",
+      "User Library",
+      "Playlist Creation",
+      "Upcoming Concerts",
+    ],
+    githubUrl: "https://github.com/FINAL-PROJECT-HCK87/Final-Project-HCK87/tree/main",
+    liveUrl: "https://expo.dev/preview/update?message=fix%3A+update+color+for+delete+button+and+text+in+PlaylistDetailScreen%3B+add+expo-updates+dependency+in+package.json+and+package-lo&updateRuntimeVersion=1.0.0&createdAt=2025-10-21T07%3A12%3A16.708Z&slug=exp&projectId=521cf54a-2018-45de-bde6-dfa3bcb84b61&group=846a11b7-321b-4c9a-974c-b8fcf7d1f7fa",
+    status: "Completed",
+    duration: "1 weeks",
+    team: "4 developers",
+    highlights: ["Mobile App", "Full-Stack", "Music Recognition"],
+    category: "Mobile App",
+    createdAt: "2025-10-20",
   },
 ];
 ---
@@ -80,13 +174,11 @@ const projects: IProject[] = [
 >
   <div class="min-h-screen bg-gray-50">
     <!-- Header Section -->
-    <section class="section-padding bg-white border-b border-gray-200">
-      <div class="container-custom">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-white border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto text-center animate-fade-in-up">
-          <h1 class="heading-1 text-gray-900 mb-5">
-            My Portfolio
-          </h1>
-          <div class="w-20 h-1 bg-blue-600 mx-auto mb-5"></div>
+          <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-gray-900 mb-5">My Portfolio</h1>
+          <div class="w-20 h-1 bg-indigo-600 mx-auto mb-5"></div>
           <p class="text-xl text-gray-600 leading-relaxed">
             Explore my latest projects showcasing modern web technologies,
             innovative solutions, and attention to detail in every
@@ -97,29 +189,27 @@ const projects: IProject[] = [
     </section>
 
     <!-- Projects Section -->
-    <section class="section-padding">
-      <div class="container-custom">
-        <div class="max-w-6xl mx-auto">
-          <PortfolioComponent projects={projects} client:load />
-        </div>
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <PortfolioGrid projects={projects} client:load />
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="section-padding bg-white border-t border-gray-200">
-      <div class="container-custom">
+    <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center">
-          <h2 class="heading-2 text-gray-900 mb-4">
+          <h2 class="text-4xl font-bold leading-tight tracking-tight text-gray-900 mb-4">
             Interested in Working Together?
           </h2>
           <p class="text-lg text-gray-600 mb-6">
             I'm always open to discussing new projects and opportunities.
           </p>
           <div class="flex flex-wrap gap-4 justify-center">
-            <a href="/#contact" class="btn-primary no-underline">
+            <a href="/#contact" class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-7 py-3.5 rounded-lg font-semibold text-[15px] transition-all duration-250 shadow-[0_4px_12px_rgba(99,102,241,0.25)] hover:from-indigo-700 hover:to-indigo-800 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(99,102,241,0.35)] no-underline">
               Get In Touch
             </a>
-            <a href="/resume" class="btn-secondary no-underline">
+            <a href="/resume" class="bg-white text-indigo-600 border-2 border-indigo-200 px-7 py-3.5 rounded-lg font-semibold text-[15px] transition-all duration-250 hover:bg-indigo-50 hover:border-indigo-400 hover:-translate-y-0.5 hover:shadow-md no-underline">
               View Resume
             </a>
           </div>

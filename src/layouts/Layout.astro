@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar";
 import SEO from "../components/SEO.astro";
 import "../styles/global.css";
 import type { ILayoutSEO } from "../types/type";
+import Sidebar from "../components/Sidebar";
 
 const defaultSEO = {
   title: "Harry Rismananda | Full Stack Web Developer",
@@ -26,6 +27,8 @@ const { seo = defaultSEO } = Astro.props as { seo?: typeof defaultSEO };
   </head>
   <body>
     <Navbar client:load />
+    
+    <Sidebar client:load />
     <slot />
   </body>
 </html>

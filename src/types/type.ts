@@ -22,4 +22,6 @@ export interface IProject {
     duration: string,
     team: string,
     highlights: string[],
+    category: string,
+    createdAt?: string,
 }

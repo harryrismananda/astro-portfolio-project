@@ -1,4 +1,5 @@
-import { Calendar, ExternalLink, Github, Star, Users } from "lucide-react";
+import { ExternalLink, Github, ChevronLeft, ChevronRight, Calendar, Users } from "lucide-react";
+import { useState, useEffect } from "react";
 import type { IProject } from "../types/type";
 
 interface IProps {
@@ -6,171 +7,240 @@ interface IProps {
 }
 
 export const PortfolioComponent = (props: IProps) => {
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "Completed":
-        return "bg-green-100 text-green-800 border-green-200";
-      case "In Development":
-        return "bg-blue-100 text-blue-800 border-blue-200";
-      default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
-    }
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Auto-scroll every 15 seconds
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === props.projects.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, props.projects.length]);
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === props.projects.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? props.projects.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
   };
 
   return (
-    <div className="space-y-12 flex flex-col gap-5 w-full h-full">
-      {props.projects.map((project, index) => (
+    <div className="relative w-full max-w-6xl mx-auto">
+      {/* Carousel Container */}
+      <div className="relative overflow-hidden rounded-2xl">
+        {/* Slides */}
         <div
-          key={project.id}
-          className={`card-base  overflow-hidden ${
-            index % 2 === 0 ? "animate-slide-in-left" : "animate-slide-in-right"
-          }`}
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          <div className="grid lg:grid-cols-5 gap-4">
-            {/* Project Visual */}
-            <div
-              className={`lg:col-span-2 relative bg-blue-600 min-h-[280px] flex items-center justify-center ${
-                index % 2 === 1 ? "lg:order-2" : ""
-              }`}
-            >
-              <div className="absolute inset-0 bg-blue-600/90 flex items-center justify-center">
-                <div className="text-white text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="40"
-                      height="40"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="16 18 22 12 16 6"></polyline>
-                      <polyline points="8 6 2 12 8 18"></polyline>
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                  <span
-                    className={`inline-block w-50 px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(
-                      project.status
-                    )}`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Project Details */}
-            <div
-              className={` lg:col-span-3 p-8 ${
-                index % 2 === 1 ? "lg:order-1" : ""
-              }`}
-            >
-              <div className="space-y-6 space-x-6 flex flex-col gap-5 py-5 px-5 mx-5 justify-between items-center">
-                {/* Description */}
-                <div>
-                  <p className="text-white text-lg leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Tech Stack */}
-                <div className="w-full flex flex-col py-5 my-5 gap-3">
-                  <h4 className="flex font-semibold text-sm uppercase tracking-wide text-white mb-3">
-                    Tech Stack
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 w-25 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium border border-blue-200"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Key Features */}
-                <div>
-                  <h4 className="font-semibold text-sm uppercase tracking-wide text-white mb-3">
-                    Key Features
-                  </h4>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {project.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start text-white"
-                      >
-                        <svg
-                          className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5 13l4 4L19 7"
+          {props.projects.map((project) => (
+            <div key={project.id} className="min-w-full">
+              {/* Card */}
+              <div className="group relative bg-white rounded-2xl shadow-xl border-2 border-gray-200 overflow-hidden h-[600px]">
+                {/* Image Section - Always Visible */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-8">
+                  {project.category === "Mobile App" ? (
+                    // Mobile Phone Frame
+                    <div className="relative w-56 max-h-full flex items-center justify-center">
+                      <div className="relative w-full aspect-[9/19.5] bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl border-8 border-gray-900">
+                        {/* Phone notch */}
+                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-5 bg-gray-900 rounded-b-2xl z-10"></div>
+                        {/* Screen */}
+                        <div className="relative w-full h-full bg-white rounded-[1.8rem] overflow-hidden">
+                          <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            className="object-contain w-full h-full"
                           />
-                        </svg>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Project Stats & Highlights */}
-                <div className="flex flex-wrap gap-10 pt-3 border-t border-gray-200 text-white">
-                  <div className="flex items-center text-sm">
-                    <Calendar className="w-4 h-4 mr-2 text-blue-600" />
-                    <span className="font-medium">{project.duration}</span>
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <Users className="w-4 h-4 mr-2 text-blue-600" />
-                    <span className="font-medium">{project.team}</span>
-                  </div>
-                  {project.highlights.map((highlight) => (
-                    <div
-                      key={highlight}
-                      className="flex items-center text-sm text-blue-400"
-                    >
-                      <Star className="w-4 h-4 mr-1 fill-current" />
-                      <span className="font-medium">{highlight}</span>
+                        </div>
+                        {/* Home indicator */}
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-gray-700 rounded-full"></div>
+                      </div>
                     </div>
-                  ))}
+                  ) : (
+                    // Laptop Frame
+                    <div className="relative w-full max-w-4xl max-h-full flex items-center justify-center">
+                      {/* Laptop Screen */}
+                      <div className="relative w-full aspect-[16/10] bg-gray-900 rounded-t-lg p-2 shadow-2xl max-h-[480px]">
+                        {/* Screen bezel */}
+                        <div className="relative w-full h-full bg-gray-800 rounded-t-md overflow-hidden border-2 border-gray-900">
+                          <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            className="object-contain w-full h-full"
+                          />
+                        </div>
+                        {/* Camera notch */}
+                        <div className="absolute top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-700 rounded-full"></div>
+                      </div>
+                      {/* Laptop Base */}
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[102%] h-2 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-lg shadow-lg">
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-gray-600 rounded-t-sm"></div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-all duration-200 hover:scale-105"
-                  >
-                    <Github className="w-4 h-4" />
-                    View Code
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 hover:scale-105"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </a>
+                {/* Title - Always Visible at Bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent z-10 md:group-hover:opacity-0 transition-opacity duration-300">
+                  <h3 className="text-2xl font-bold text-white drop-shadow-lg">
+                    {project.title}
+                  </h3>
+                </div>
+
+                {/* Hover Overlay - Glass Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/95 via-purple-900/95 to-indigo-900/95 backdrop-blur-sm opacity-0 group-hover:opacity-80 transition-opacity duration-300 overflow-y-auto z-20">
+                  <div className="p-6 h-full flex flex-col">
+                    {/* Title */}
+                    <h3 className="text-2xl font-bold text-white mb-3">
+                      {project.title}
+                    </h3>
+
+                    {/* Meta Info */}
+                    <div className="flex items-center gap-4 text-sm text-gray-200 mb-4">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{project.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Users className="w-4 h-4" />
+                        <span>{project.team}</span>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-gray-100 text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="mb-4">
+                      <h4 className="font-bold text-xs uppercase tracking-wider text-white mb-2">
+                        Tech Stack
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.techStack.slice(0, 6).map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2 py-1 bg-white/20 text-white rounded-md text-xs font-semibold border border-white/30 backdrop-blur-sm"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.techStack.length > 6 && (
+                          <span className="px-2 py-1 bg-white/10 text-white rounded-md text-xs font-semibold">
+                            +{project.techStack.length - 6} more
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Key Features */}
+                    <div className="mb-6">
+                      <h4 className="font-bold text-xs uppercase tracking-wider text-white mb-2">
+                        Key Features
+                      </h4>
+                      <ul className="grid grid-cols-2 gap-2">
+                        {project.features.slice(0, 4).map((feature) => (
+                          <li key={feature} className="flex items-start text-gray-100">
+                            <svg
+                              className="w-4 h-4 text-green-400 mr-1 flex-shrink-0 mt-0.5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="3"
+                                d="M5 13l4 4L19 7"
+                              ></path>
+                            </svg>
+                            <span className="text-xs font-medium">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3 mt-auto">
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white text-gray-900 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-all duration-200 shadow-md"
+                      >
+                        <Github className="w-4 h-4" />
+                        View Code
+                      </a>
+                      {project.liveUrl !== "#" && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-semibold text-sm hover:from-indigo-600 hover:to-purple-600 transition-all duration-200 shadow-md"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
+      </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={goToPrevious}
+        className="absolute -left-15 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-110 z-10 border-2 border-gray-200"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6 text-gray-900" />
+      </button>
+      <button
+        onClick={goToNext}
+        className="absolute -right-15 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-110 z-10 border-2 border-gray-200"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6 text-gray-900" />
+      </button>
+
+      {/* Dots Indicator */}
+      <div className="flex justify-center gap-3 mt-8">
+        {props.projects.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`transition-all duration-300 rounded-full ${
+              index === currentIndex
+                ? "w-12 h-3 bg-gradient-to-r from-indigo-600 to-purple-600"
+                : "w-3 h-3 bg-gray-300 hover:bg-gray-400"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+
     </div>
   );
 };

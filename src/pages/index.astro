@@ -3,6 +3,13 @@ import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
+<Layout
+  seo={{
+    title: "Harry Rismananda | Full Stack Software Developer & Project Manager",
+    description: "Full Stack Software Developer experienced in React, Node.js, TypeScript, and modern web technologies. Previously managed large-scale digital projects with 12,000+ participants. Available for remote work worldwide.",
+    image: "/profile-picture.jpg",
+    type: "website",
+  }}
+>
 	<Welcome />
 </Layout>
