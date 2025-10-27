@@ -97,7 +97,7 @@ export const PortfolioComponent = (props: IProps) => {
                 </div>
 
                 {/* Title - Always Visible at Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent z-10">
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent z-10 md:group-hover:opacity-0 transition-opacity duration-300">
                   <h3 className="text-2xl font-bold text-white drop-shadow-lg">
                     {project.title}
                   </h3>

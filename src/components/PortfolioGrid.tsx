@@ -18,7 +18,7 @@ export const PortfolioGrid = (props: IProps) => {
       {sortedProjects.map((project) => (
         <div
           key={project.id}
-          className="group relative bg-white rounded-2xl shadow-lg border-2 border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-[600px]"
+          className="group relative bg-white rounded-2xl shadow-lg border-2 border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 md:hover:-translate-y-1 h-[600px]"
         >
           {/* Image Section - Always Visible */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-8">
@@ -65,14 +65,14 @@ export const PortfolioGrid = (props: IProps) => {
           </div>
 
           {/* Title - Always Visible at Bottom */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent z-10">
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent z-10 md:group-hover:opacity-0 transition-opacity duration-300">
             <h3 className="text-2xl font-bold text-white drop-shadow-lg">
               {project.title}
             </h3>
           </div>
 
-          {/* Hover Overlay - Glass Effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/95 via-purple-900/95 to-indigo-900/95 backdrop-blur-sm opacity-0 group-hover:opacity-80 transition-opacity duration-300 overflow-y-auto z-20">
+          {/* Hover Overlay - Glass Effect (Desktop) / Always Visible (Mobile) */}
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/95 via-purple-900/95 to-indigo-900/95 backdrop-blur-sm opacity-80 md:opacity-0 md:group-hover:opacity-80 transition-opacity duration-300 overflow-y-auto z-20">
             <div className="p-6 h-full flex flex-col">
               {/* Title */}
               <h3 className="text-2xl font-bold text-white mb-3">
