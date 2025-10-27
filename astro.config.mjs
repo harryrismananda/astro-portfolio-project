@@ -6,6 +6,8 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import {tanstackRouter} from '@tanstack/router-vite-plugin';
 
+import vercel from '@astrojs/vercel';
+
 // https://astro.build/config
 export default defineConfig({
   output: "server",
@@ -16,5 +18,7 @@ export default defineConfig({
       target: 'react',
       autoCodeSplitting: true,
     })],
-  }
+  },
+
+  adapter: vercel()
 });
