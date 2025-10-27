@@ -1,45 +1,34 @@
-import { Home, Mail } from "@mui/icons-material";
-import {  FileText, User, X, Menu, Folder } from "lucide-react";
-import { useState } from "react";
+import { Home as HomeIcon, Mail } from "@mui/icons-material";
+import { FileText, X, Menu, Folder } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  
-  const handleSectionNavigation = (href: string) => {
-    if (href.startsWith("/#")) {
-      const sectionId = href.substring(2); // Remove '/#' prefix
-      if (window.location.pathname !== "/") {
-        // Navigate to home first, then scroll
-        window.location.href = href;
-      } else {
-        // Already on home page, just scroll
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    } else {
-      window.location.href = href;
-    }
+  const [currentPath, setCurrentPath] = useState("");
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
+
+  const handleNavigation = (href: string) => {
+    window.location.href = href;
     setIsOpen(false);
   };
 
+  const isActive = (href: string) => {
+    return currentPath === href;
+  };
+
   const navigation = [
-    { name: "Home", href: "/#hero", icon: Home, isSection: true },
-    { name: "About", href: "/#about", icon: User, isSection: true },
-    {
-      name: "Portfolio",
-      href: "/portfolio",
-      icon: Folder,
-      isSection: false,
-    },
-    { name: "Resume", href: "/resume", icon: FileText, isSection: false }
+    { name: "Home", href: "/", icon: HomeIcon },
+    { name: "Portfolio", href: "/portfolio", icon: Folder },
+    { name: "Resume", href: "/resume", icon: FileText },
   ];
 
   return (
     <nav className="sticky top-0 z-50  bg-[#9babfe] backdrop-blur-sm shadow-sm">
       <div className="mx-auto max-w-full px-6">
-        <div className="flex  h-17 gap-4 px-5 items-center min-w-full justify-evenly">
+        <div className="flex  h-17 gap-2 px-5 items-center min-w-full justify-evenly">
           {/* Logo */}
           <div className="flex">
           <a href="/" className="flex items-center justify-between space-x-2 group">
@@ -55,13 +44,20 @@ export const Navbar = () => {
             {navigation.map((item) => (
               <button
                 key={item.name}
-                onClick={() => handleSectionNavigation(item.href)}
-                className="group relative px-4 py-2 text-md font-medium transition-all duration-200 rounded-lg text-blue-900 hover:text-black"
+                onClick={() => handleNavigation(item.href)}
+                className={`group relative px-4 py-2 text-md font-medium transition-all duration-200 rounded-lg hover:cursor-pointer ${
+                  isActive(item.href)
+                    ? "text-blue-900"
+                    : "text-blue-900 hover:text-black"
+                }`}
               >
-                <span className="flex gap-3 items-center space-x-2">
+                <span className="flex gap-1 items-center space-x-2">
                   <item.icon className="w-4 h-4" />
                   <span>{item.name}</span>
                 </span>
+                {isActive(item.href) && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-0.5 bg-blue-900 rounded-full"></span>
+                )}
               </button>
             ))}
 
@@ -103,11 +99,18 @@ export const Navbar = () => {
               {navigation.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => handleSectionNavigation(item.href)}
-                  className="group flex items-center space-x-3 px-4 py-3 text-base font-medium transition-all duration-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 w-full text-left"
+                  onClick={() => handleNavigation(item.href)}
+                  className={`group flex items-center space-x-3 px-4 py-3 text-base font-medium transition-all duration-200 rounded-lg w-full text-left ${
+                    isActive(item.href)
+                      ? "bg-blue-900 text-white"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                  }`}
                 >
                   <item.icon className="w-5 h-5" />
                   <span>{item.name}</span>
+                  {isActive(item.href) && (
+                    <span className="ml-auto w-2 h-2 bg-white rounded-full"></span>
+                  )}
                 </button>
               ))}
 

@@ -28,7 +28,7 @@ const { seo = defaultSEO } = Astro.props as { seo?: typeof defaultSEO };
   <body>
     <Navbar client:load />
     
-    <Sidebar />
+    <Sidebar client:load />
     <slot />
   </body>
 </html>

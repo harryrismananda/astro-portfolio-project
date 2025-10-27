@@ -1,5 +1,5 @@
 ---
-import { PortfolioComponent } from "../components/PortfolioComponent";
+import { PortfolioGrid } from "../components/PortfolioGrid";
 import Layout from "../layouts/Layout.astro";
 import type { IProject } from "../types/type";
 
@@ -9,7 +9,7 @@ const projects: IProject[] = [
     title: "Solo Traveler App",
     description:
       "A full-stack application targeted to solo travelers to connect with each other with modern UI/UX, real-time chat feature and responsive design. Built with a team of 4 developers in 1 week.",
-    image: "/api/placeholder/600/300",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761485481/gp-image_ycgelp.png",
     techStack: [
       "React",
       "Javascript",
@@ -27,22 +27,22 @@ const projects: IProject[] = [
       "Real-time Updates",
       "Real-time chat",
       "Group chat",
-      "Geolocation services",
-      "User matching",
     ],
     githubUrl: "https://github.com/harryrismananda/solo-traveler-app",
     liveUrl: "https://solo-traveling-590fb.web.app/",
     status: "Completed",
     duration: "1 week",
     team: "4 developers",
-    highlights: ["Real-time Sync", "Geolocation", "Mobile Responsive"],
+    highlights: ["Real-time Chat", "AI-Powered", "Mobile Responsive"],
+    category: "Web App",
+    createdAt: "2025-09-22",
   },
   {
     id: 2,
     title: "BiblioLex - AI-powered Language Learning Platform",
     description:
       "A comprehensive language learning platform leveraging AI to provide personalized learning courses and questions. Features include quiz modes, progress tracking, subscription model, and payment integration.",
-    image: "/api/placeholder/600/300",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761485480/ip-image_tunxhp.png",
     techStack: [
       "React",
       "Javascript",
@@ -51,7 +51,7 @@ const projects: IProject[] = [
       "Tailwind CSS",
       "Gemini AI API",
       "Midtrans Payment",
-      "AWS S3",
+      "Supabase",
     ],
     features: [
       "User Authentication",
@@ -68,44 +68,44 @@ const projects: IProject[] = [
     status: "Completed",
     duration: "1 week",
     team: "1 developer",
-    highlights: ["AI-Powered", "Mobile Responsive", "Subscription Model"],
+    highlights: ["AI-Powered", "Mobile Responsive", "Subscription Model", "CMS"],
+    category: "Web App",
+    createdAt: "2025-09-18",
   },
   {
     id: 3,
     title: "Asyik Store - E-commerce Platform",
     description:
-      "A full-featured e-commerce application cloned from a popular Japanese brand sport store. Includes shopping cart, product catalog, order management, and responsive design.",
-    image: "/api/placeholder/600/300",
+      "A full-featured e-commerce application cloned from a popular Japanese brand sport store. Includes product catalog, user authentication, and responsive design.",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761485480/asyik-image_zug0mg.png",
     techStack: [
+      "Next.js",
+      "TypeScript",
       "React",
-      "Javascript",
-      "Node.js",
-      "Express",
       "MongoDB",
-      "Tailwind CSS",
-      "Stripe Payment",
+      "Tailwind CSS"
     ],
     features: [
       "Product Catalog",
-      "Shopping Cart",
-      "Order Management",
-      "Admin Dashboard",
-      "Payment Integration",
       "User Authentication",
+      "Infinite Scrolling",
+      "Wishlist",
     ],
-    githubUrl: "https://github.com/harryrismananda",
-    liveUrl: "#",
+    githubUrl: "https://github.com/harryrismananda/asyik-shoes-and-apparel-store",
+    liveUrl: "https://asyik.harryrismananda.site/",
     status: "Completed",
     duration: "2 weeks",
     team: "1 developer",
-    highlights: ["E-commerce", "Payment Gateway", "Admin Panel"],
+    highlights: ["E-commerce", "Responsive Design", "Full-Stack"],
+    category: "Web App",
+    createdAt: "2025-10-09",
   },
   {
     id: 4,
     title: "X Clone - Social Media Platform",
     description:
-      "A full-stack social media application inspired by X (formerly Twitter). Built with React Native and GraphQL, featuring real-time updates, post creation, likes, comments, and user profiles.",
-    image: "/api/placeholder/600/300",
+      "A full-stack social media application inspired by X (formerly Twitter). Built with React Native and GraphQL, post creation, likes, comments, and user profiles.",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761555169/x-clone_lm93wh.png",
     techStack: [
       "React Native",
       "Expo",
@@ -120,15 +120,45 @@ const projects: IProject[] = [
       "User Feed",
       "Likes & Comments",
       "User Profiles",
-      "Real-time Updates",
       "Follow System",
     ],
-    githubUrl: "https://github.com/harryrismananda",
-    liveUrl: "#",
+    githubUrl: "https://github.com/harryrismananda/x-clone",
+    liveUrl: "https://expo.dev/preview/update?message=feat%3A+Enhance+FollowNavigator+with+SafeAreaView+and+custom+tab+styles%3B+update+Following+and+Follower+screens+to+remove+headers+a&updateRuntimeVersion=1.0.0&createdAt=2025-10-03T13%3A18%3A32.911Z&slug=exp&projectId=115361d9-8b65-493b-afa7-b5f6a1f2b7c5&group=2e3530d4-f0e5-4648-b32e-7e9a7305f435",
     status: "Completed",
-    duration: "2 weeks",
+    duration: "1 weeks",
     team: "1 developer",
-    highlights: ["Mobile App", "GraphQL", "Real-time Updates"],
+    highlights: ["Mobile App", "GraphQL", "Social Media", "Full-Stack"],
+    category: "Mobile App",
+    createdAt: "2025-10-03",
+  },
+  {
+    id: 5,
+    title: "Melodix",
+    description:
+      "Melodix is a music recognition mobile application designed to identify songs playing around users in just a few seconds.",
+    image: "https://res.cloudinary.com/dvadb78as/image/upload/v1761555178/melodix-image_yk0asc.png",
+    techStack: [
+      "React Native",
+      "Expo",
+      "Express.js",
+      "MongoDB",
+      "TypeScript",
+    ],
+    features: [
+      "Song Identification",
+      "Music Recognition",
+      "User Library",
+      "Playlist Creation",
+      "Upcoming Concerts",
+    ],
+    githubUrl: "https://github.com/FINAL-PROJECT-HCK87/Final-Project-HCK87/tree/main",
+    liveUrl: "https://expo.dev/preview/update?message=fix%3A+update+color+for+delete+button+and+text+in+PlaylistDetailScreen%3B+add+expo-updates+dependency+in+package.json+and+package-lo&updateRuntimeVersion=1.0.0&createdAt=2025-10-21T07%3A12%3A16.708Z&slug=exp&projectId=521cf54a-2018-45de-bde6-dfa3bcb84b61&group=846a11b7-321b-4c9a-974c-b8fcf7d1f7fa",
+    status: "Completed",
+    duration: "1 weeks",
+    team: "4 developers",
+    highlights: ["Mobile App", "Full-Stack", "Music Recognition"],
+    category: "Mobile App",
+    createdAt: "2025-10-20",
   },
 ];
 ---
@@ -161,9 +191,7 @@ const projects: IProject[] = [
     <!-- Projects Section -->
     <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-          <PortfolioComponent projects={projects} client:load />
-        </div>
+        <PortfolioGrid projects={projects} client:load />
       </div>
     </section>
 
